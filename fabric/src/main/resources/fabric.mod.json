@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "genexr",
+  "version": "${version}",
+
+  "name": "GeneXR",
+  "description": "A Vivecraft fork for Minecraft 1.20.4, built around Intel Arc support, motion controls, and familiar joystick movement.",
+  "icon": "genexr.png",
+  "authors": ["GeneXR contributors"],
+
+  "license": "LGPL-3.0-or-later",
+
+  "environment": "client",
+  "entrypoints": {
+    "mm:early_risers": [
+      "org.vivecraft.VivecraftEarlyEntryForOptifabric"
+    ],
+    "main": [
+      "org.vivecraft.fabric.VivecraftMod"
+    ],
+    "modmenu": [
+      "org.vivecraft.client.fabric.VivecraftModMenuApiImpl"
+    ]
+  },
+  "mixins": [
+    "vivecraft.mixins.json",
+    "vivecraft.blur.mixins.json",
+    "vivecraft.bedrockify.mixins.json",
+    "vivecraft.dynamicfps.mixins.json",
+    "vivecraft.sodium.mixins.json",
+    "vivecraft.iris.mixins.json",
+    "vivecraft.modmenu.mixins.json",
+    "vivecraft.physicsmod.mixins.json",
+    "vivecraft.rei.mixins.json",
+    "vivecraft.resolutioncontrol.mixins.json",
+    "vivecraft.sereneseasons.mixins.json",
+    "vivecraft.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.1",
+    "minecraft": "1.20.4",
+    "java": ">=17"
+  },
+  "breaks": {
+    "vivecraft": "*",
+    "sodium": ["0.4.11+build.25", "0.4.11+build.26"]
+  },
+  "custom": {
+    "mc-publish": {
+      "dependencies": [
+        "sodium(incompatible)#(ignore)"
+      ]
+    },
+    "modmenu": {
+      "update_checker": false
+    }
+  }
+}
