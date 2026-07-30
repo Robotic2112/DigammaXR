@@ -94,7 +94,7 @@ public class MCOpenXR extends MCVR {
         super(mc, dh, VivecraftVRMod.INSTANCE);
         OME = this;
         this.hapticScheduler = new OpenXRHapticSchedular();
-        // GeneXR uses tracked controllers even while the player is physically
+        // ForkXR uses tracked controllers even while the player is physically
         // seated. Vivecraft's "Seated" play mode disables motion-controller
         // input, so keep its controller-capable Standing mode and make smooth
         // left-stick locomotion deterministic for both new and old profiles.
@@ -523,10 +523,10 @@ public class MCOpenXR extends MCVR {
             String hand = controller == RIGHT_CONTROLLER ? "right" : "left";
             if (tracking) {
                 VRSettings.LOGGER.info(
-                    "GeneXR: VDXR {} Touch Plus tracking active", hand);
+                    "ForkXR: VDXR {} Touch Plus tracking active", hand);
             } else {
                 VRSettings.LOGGER.warn(
-                    "GeneXR: VDXR is not reporting a valid {} Touch Plus pose",
+                    "ForkXR: VDXR is not reporting a valid {} Touch Plus pose",
                     hand);
             }
         }
@@ -636,7 +636,7 @@ public class MCOpenXR extends MCVR {
             this.logError(
                 error,
                 "xrGetActionStateVector2f",
-                "GeneXR " + hand.name().toLowerCase(Locale.ROOT) +
+                "ForkXR " + hand.name().toLowerCase(Locale.ROOT) +
                     " Touch Plus " + purpose);
             if (error < 0 || !state.isActive()) {
                 axis.zero();
@@ -657,7 +657,7 @@ public class MCOpenXR extends MCVR {
             if (!alreadyLogged && axis.lengthSquared() > 0.0025F)
             {
                 VRSettings.LOGGER.info(
-                    "GeneXR: dedicated {} Touch Plus joystick {} active",
+                    "ForkXR: dedicated {} Touch Plus joystick {} active",
                     hand.name().toLowerCase(Locale.ROOT),
                     purpose);
             }
@@ -736,13 +736,13 @@ public class MCOpenXR extends MCVR {
             this.logError(
                 error,
                 "xrGetActionStateBoolean",
-                "GeneXR right Touch Plus jump");
+                "ForkXR right Touch Plus jump");
             this.rightJumpPressed =
                 error >= 0 && state.isActive() && state.currentState();
             if (this.rightJumpPressed && !this.rightJumpLogged) {
                 this.rightJumpLogged = true;
                 VRSettings.LOGGER.info(
-                    "GeneXR: right Touch Plus A fallback-jump action active");
+                    "ForkXR: right Touch Plus A fallback-jump action active");
             }
         }
     }
@@ -773,7 +773,7 @@ public class MCOpenXR extends MCVR {
             this.logError(
                 error,
                 "xrGetActionStateBoolean",
-                "GeneXR left Touch Plus game menu");
+                "ForkXR left Touch Plus game menu");
             boolean pressed =
                 error >= 0 && state.isActive() && state.currentState();
             if (pressed && !this.menuWasPressed) {
@@ -784,7 +784,7 @@ public class MCOpenXR extends MCVR {
                     InputSimulator.releaseKey(GLFW.GLFW_KEY_ESCAPE);
                 }
                 VRSettings.LOGGER.info(
-                    "GeneXR: left Touch Plus X game-menu action active");
+                    "ForkXR: left Touch Plus X game-menu action active");
             }
             this.menuWasPressed = pressed;
         }
@@ -812,14 +812,14 @@ public class MCOpenXR extends MCVR {
             this.logError(
                 error,
                 "xrGetActionStateBoolean",
-                "GeneXR Touch Plus inventory");
+                "ForkXR Touch Plus inventory");
             boolean pressed =
                 error >= 0 && state.isActive() && state.currentState();
             if (pressed && !this.inventoryWasPressed) {
                 InputSimulator.pressKey(GLFW.GLFW_KEY_E);
                 InputSimulator.releaseKey(GLFW.GLFW_KEY_E);
                 VRSettings.LOGGER.info(
-                    "GeneXR: Touch Plus left Y inventory action active");
+                    "ForkXR: Touch Plus left Y inventory action active");
             }
             this.inventoryWasPressed = pressed;
         }
@@ -898,7 +898,7 @@ public class MCOpenXR extends MCVR {
                     this.isActive = false;
                     this.sessionRunning = false;
                     VRSettings.LOGGER.error(
-                        "GeneXR: the OpenXR runtime reported instance loss");
+                        "ForkXR: the OpenXR runtime reported instance loss");
                 }
                 case XR10.XR_TYPE_EVENT_DATA_SESSION_STATE_CHANGED -> {
                     this.sessionChanged(XrEventDataSessionStateChanged.create(event.address()));
@@ -907,7 +907,7 @@ public class MCOpenXR extends MCVR {
                     this.boundSourcesCache.clear();
                     this.originControllerCache.clear();
                     VRSettings.LOGGER.info(
-                        "GeneXR: Touch Plus interaction profile changed; refreshed controller bindings");
+                        "ForkXR: Touch Plus interaction profile changed; refreshed controller bindings");
                     this.logCurrentInteractionProfile(ControllerType.LEFT);
                     this.logCurrentInteractionProfile(ControllerType.RIGHT);
                 }
@@ -933,7 +933,7 @@ public class MCOpenXR extends MCVR {
                 hand.name());
             if (error < 0 || profile.interactionProfile() == XR10.XR_NULL_PATH) {
                 VRSettings.LOGGER.warn(
-                    "GeneXR: VDXR reports no active interaction profile for {}",
+                    "ForkXR: VDXR reports no active interaction profile for {}",
                     hand.name().toLowerCase(Locale.ROOT));
                 return;
             }
@@ -957,7 +957,7 @@ public class MCOpenXR extends MCVR {
             this.logError(error, "xrPathToString", "interaction profile");
             if (error >= 0) {
                 VRSettings.LOGGER.info(
-                    "GeneXR: VDXR {} controller profile is {}",
+                    "ForkXR: VDXR {} controller profile is {}",
                     hand.name().toLowerCase(Locale.ROOT),
                     memUTF8(memAddress(value)));
             }
@@ -967,7 +967,7 @@ public class MCOpenXR extends MCVR {
     private void sessionChanged(XrEventDataSessionStateChanged xrEventDataSessionStateChanged) {
         int state = xrEventDataSessionStateChanged.state();
         VRSettings.LOGGER.info(
-            "GeneXR: OpenXR session state {} -> {}",
+            "ForkXR: OpenXR session state {} -> {}",
             sessionStateName(this.sessionState),
             sessionStateName(state));
         this.sessionState = state;
@@ -1050,7 +1050,7 @@ public class MCOpenXR extends MCVR {
                 this.initInputAndApplication();
             } catch (Exception e) {
                 VRSettings.LOGGER.error(
-                    "GeneXR: native OpenXR initialization failed", e);
+                    "ForkXR: native OpenXR initialization failed", e);
                 this.initSuccess = false;
                 String message = e.getLocalizedMessage();
                 this.initStatus = message == null || message.isBlank()
@@ -1061,7 +1061,7 @@ public class MCOpenXR extends MCVR {
             }
 
             VRSettings.LOGGER.info(
-                "GeneXR: native OpenXR initialized; waiting for the runtime READY state");
+                "ForkXR: native OpenXR initialized; waiting for the runtime READY state");
             this.deviceVelocity = new Vector3f[64];
 
             for (int i = 0; i < this.poseMatrices.length; ++i) {
@@ -1114,7 +1114,7 @@ public class MCOpenXR extends MCVR {
                     "The active OpenXR runtime does not expose Vulkan enable2");
             }
             VRSettings.LOGGER.info(
-                "GeneXR: native Meta Touch Plus OpenXR profile {}",
+                "ForkXR: native Meta Touch Plus OpenXR profile {}",
                 this.metaTouchPlusProfileEnabled
                     ? "enabled"
                     : "unavailable; using Oculus Touch compatibility");
@@ -1122,7 +1122,7 @@ public class MCOpenXR extends MCVR {
             //Create APP info
             XrApplicationInfo applicationInfo = XrApplicationInfo.calloc(stack);
             applicationInfo.apiVersion(XR10.XR_MAKE_VERSION(1, 0, 40));
-            applicationInfo.applicationName(stack.UTF8("GeneXR"));
+            applicationInfo.applicationName(stack.UTF8("ForkXR"));
             applicationInfo.applicationVersion(APPLICATION_VERSION);
 
             //Create instance info
@@ -1142,7 +1142,7 @@ public class MCOpenXR extends MCVR {
                     "The OpenXR runtime could not create an instance; verify that the headset is connected");
             } else if (xrResult == XR10.XR_ERROR_INSTANCE_LOST) {
                 throw new IllegalStateException(
-                    "The OpenXR runtime was restarted while GeneXR was initializing");
+                    "The OpenXR runtime was restarted while ForkXR was initializing");
             } else if (xrResult < 0) {
                 throw new IllegalStateException(
                     "xrCreateInstance failed with OpenXR result " + xrResult);
@@ -1166,7 +1166,7 @@ public class MCOpenXR extends MCVR {
             {
                 throw new IllegalStateException(
                     "Unsupported OpenXR runtime '" + this.runtimeName +
-                        "'. GeneXR requires Virtual Desktop VDXR.");
+                        "'. ForkXR requires Virtual Desktop VDXR.");
             }
 
             this.poseMatrices = new Matrix4f[64];
@@ -1547,32 +1547,32 @@ public class MCOpenXR extends MCVR {
             this.actionSetHandles.get(VRInputActionSet.INGAME),
             this.instance);
         this.leftLocomotionAction = createAction(
-            "/actions/ingame/in/genexr_left_locomotion",
-            "GeneXR left Touch Plus locomotion",
+            "/actions/ingame/in/forkxr_left_locomotion",
+            "ForkXR left Touch Plus locomotion",
             "vector2",
             ingameActionSet,
             null);
         this.rightTurnAction = createAction(
-            "/actions/ingame/in/genexr_right_turn",
-            "GeneXR right Touch Plus turning",
+            "/actions/ingame/in/forkxr_right_turn",
+            "ForkXR right Touch Plus turning",
             "vector2",
             ingameActionSet,
             null);
         this.rightJumpAction = createAction(
-            "/actions/ingame/in/genexr_right_jump",
-            "GeneXR right Touch Plus jump",
+            "/actions/ingame/in/forkxr_right_jump",
+            "ForkXR right Touch Plus jump",
             "boolean",
             ingameActionSet,
             null);
         this.menuAction = createAction(
-            "/actions/global/in/genexr_menu",
-            "GeneXR Touch Plus game menu",
+            "/actions/global/in/forkxr_menu",
+            "ForkXR Touch Plus game menu",
             "boolean",
             actionSet,
             null);
         this.inventoryAction = createAction(
-            "/actions/global/in/genexr_inventory",
-            "GeneXR Touch Plus inventory",
+            "/actions/global/in/forkxr_inventory",
+            "ForkXR Touch Plus inventory",
             "boolean",
             actionSet,
             null);

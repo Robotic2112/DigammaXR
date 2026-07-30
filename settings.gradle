@@ -12,4 +12,4 @@ include("common")
 include("stubs")
 include("fabric")
 
-rootProject.name = "GeneXR"
+rootProject.name = "ForkXR"

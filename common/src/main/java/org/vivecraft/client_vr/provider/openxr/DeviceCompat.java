@@ -11,7 +11,7 @@ import org.vivecraft.client_vr.settings.VRSettings;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 /**
- * Windows graphics binding for GeneXR.
+ * Windows graphics binding for ForkXR.
  *
  * <p>The Minecraft renderer remains OpenGL, but the OpenXR session itself is
  * intentionally Vulkan. No OpenGL graphics binding is ever presented to VDXR,
@@ -37,7 +37,7 @@ public interface DeviceCompat {
     static DeviceCompat detectDevice() {
         if (Platform.get() != Platform.WINDOWS) {
             throw new IllegalStateException(
-                "GeneXR supports the Windows VDXR runtime only");
+                "ForkXR supports the Windows VDXR runtime only");
         }
         return new Desktop();
     }
@@ -53,7 +53,7 @@ public interface DeviceCompat {
         @Override
         public void initOpenXRLoader(MemoryStack stack) {
             VRSettings.LOGGER.info(
-                "GeneXR: loading native Windows OpenXR through VDXR");
+                "ForkXR: loading native Windows OpenXR through VDXR");
         }
 
         @Override
@@ -79,7 +79,7 @@ public interface DeviceCompat {
         {
             if (this.backend != null) {
                 throw new IllegalStateException(
-                    "The GeneXR Vulkan graphics device already exists");
+                    "The ForkXR Vulkan graphics device already exists");
             }
             this.backend =
                 VulkanXrBackend.create(instance, systemId, stack);
@@ -90,7 +90,7 @@ public interface DeviceCompat {
         public VulkanXrBackend getVulkanBackend() {
             if (this.backend == null) {
                 throw new IllegalStateException(
-                    "The GeneXR Vulkan graphics device is not initialized");
+                    "The ForkXR Vulkan graphics device is not initialized");
             }
             return this.backend;
         }

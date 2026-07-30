@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "genexr",
+  "id": "forkxr",
   "version": "${version}",
 
-  "name": "GeneXR",
-  "description": "A Vivecraft fork for Minecraft 1.20.4, built around Intel Arc support, motion controls, and familiar joystick movement.",
-  "icon": "genexr.png",
-  "authors": ["GeneXR contributors"],
+  "name": "ForkXR",
+  "description": "The only simple way to play Minecraft Java in VR on Intel Arc graphics cards.",
+  "icon": "forkxr.png",
+  "authors": ["ForkXR contributors"],
 
   "license": "LGPL-3.0-or-later",
 
