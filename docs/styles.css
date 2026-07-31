@@ -1,1 +1,67 @@
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#111;font-family:"Segoe UI",Tahoma,Arial,sans-serif}a{color:inherit;text-decoration:none}a:hover{opacity:.6}.nav,main,footer{width:min(960px,calc(100% - 40px));margin:auto}.nav{height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ddd}.brand,.github{display:flex;align-items:center;gap:8px;font-weight:700}.brand img{width:28px;height:28px;border-radius:5px;image-rendering:pixelated}.nav nav,footer div{display:flex;gap:24px;align-items:center;font-size:14px}main{padding:74px 0 82px}.product{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);align-items:center;gap:54px}.product-copy h1{margin:0 0 18px;font-size:clamp(34px,4.5vw,50px);line-height:1.08;letter-spacing:-.045em}.product-copy p{margin:0 0 28px;color:#444;font-size:16px;line-height:1.65}.slider{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid #d8d8d8;background:#eee}.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .25s}.slide.active{opacity:1}.slider button{position:absolute;z-index:2;top:50%;width:38px;height:38px;transform:translateY(-50%);border:1px solid #ccc;background:#fff;color:#111;font-size:18px;cursor:pointer}.prev{left:10px}.next{right:10px}.dots{display:flex;justify-content:center;gap:7px;padding-top:12px}.dots button{width:7px;height:7px;padding:0;border:1px solid #111;border-radius:50%;background:#fff;cursor:pointer}.dots button.active{background:#111}.download-button{min-height:50px;display:inline-flex;align-items:center;gap:10px;padding:0 20px;background:#111;color:#fff;font-weight:650}.download-button img{width:20px;height:20px;filter:invert(1)}.download-button b{font-size:22px}footer{min-height:92px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #ddd;font-size:14px}.github img{width:21px;height:21px}.wiki{width:min(1160px,calc(100% - 32px))}.wiki-layout{display:grid;grid-template-columns:180px minmax(0,820px);gap:42px;padding:36px 0 80px}.toc{position:sticky;top:24px;align-self:start;display:flex;flex-direction:column;gap:10px;font-size:14px}.toc strong{padding-bottom:9px;border-bottom:1px solid #c8ccd1}.toc a{color:#36c}.article{font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.62}.article h1{margin:0;padding-bottom:6px;border-bottom:1px solid #a2a9b1;font-size:34px;font-weight:400;letter-spacing:0}.subtitle{margin:5px 0 24px;color:#54595d;font:13px Arial,sans-serif}.article h2{margin:32px 0 12px;padding-bottom:4px;border-bottom:1px solid #a2a9b1;font-size:24px;font-weight:400}.box{float:right;width:260px;margin:0 0 20px 28px;padding:6px;border:1px solid #a2a9b1;background:#f8f9fa;font:13px Arial,sans-serif;text-align:center}.box h3{margin:0;padding:6px;background:#eaecf0;font-size:18px}.box img{width:150px;margin:16px}.box dl{display:grid;grid-template-columns:80px 1fr;margin:0;text-align:left}.box dt,.box dd{margin:0;padding:5px;border-top:1px solid #eaecf0}.box dt{font-weight:700}.article table{border-collapse:collapse;font:14px Arial,sans-serif}.article th,.article td{padding:8px 14px;border:1px solid #a2a9b1;text-align:left}.article th{background:#eaecf0}@media(max-width:700px){.nav,main,footer{width:calc(100% - 24px)}.nav nav{gap:14px}main{padding-top:38px}.product{grid-template-columns:1fr;gap:34px}.product-copy h1{font-size:36px}footer{align-items:flex-start;flex-direction:column;justify-content:center;gap:14px}.wiki-layout{grid-template-columns:1fr}.toc{display:none}.box{float:none;width:100%;margin:0 0 24px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide{transition:none}}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: #111; font-family: "Segoe UI", Tahoma, Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+a:hover { opacity: .6; }
+.nav, main, footer { width: min(960px, calc(100% - 40px)); margin: auto; }
+.nav { height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ddd; }
+.brand, .github { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+.brand img { width: 28px; height: 28px; border-radius: 5px; image-rendering: pixelated; }
+.nav nav, footer div { display: flex; gap: 24px; align-items: center; font-size: 14px; }
+main { padding: 74px 0 82px; }
+.product { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr); align-items: center; gap: 54px; }
+.product-copy h1 { margin: 0 0 18px; font-size: clamp(34px, 4.5vw, 50px); line-height: 1.08; letter-spacing: -.045em; }
+.product-copy p { margin: 0 0 28px; color: #444; font-size: 16px; line-height: 1.65; }
+.slider { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid #d8d8d8; background: #eee; }
+.slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .25s; }
+.slide.active { opacity: 1; }
+.slider button { position: absolute; z-index: 2; top: 50%; width: 38px; height: 38px; transform: translateY(-50%); border: 1px solid #ccc; background: #fff; color: #111; font-size: 18px; cursor: pointer; }
+.prev { left: 10px; }
+.next { right: 10px; }
+.dots { display: flex; justify-content: center; gap: 7px; padding-top: 12px; }
+.dots button { width: 7px; height: 7px; padding: 0; border: 1px solid #111; border-radius: 50%; background: #fff; cursor: pointer; }
+.dots button.active { background: #111; }
+.download-options { display: flex; flex-wrap: wrap; gap: 10px; }
+.download-button { min-height: 50px; display: inline-flex; align-items: center; gap: 10px; padding: 0 20px; border: 1px solid #111; background: #111; color: #fff; font-weight: 650; }
+.download-button img { width: 20px; height: 20px; filter: invert(1); }
+.download-button .platform-icon { width: 22px; height: 22px; }
+.download-button .download-icon { width: 18px; height: 18px; margin-left: 2px; }
+footer { min-height: 92px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #ddd; font-size: 14px; }
+.github img { width: 21px; height: 21px; }
+.wiki { width: min(1160px, calc(100% - 32px)); }
+.wiki-layout { display: grid; grid-template-columns: 180px minmax(0, 820px); gap: 42px; padding: 36px 0 80px; }
+.toc { position: sticky; top: 24px; align-self: start; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.toc strong { padding-bottom: 9px; border-bottom: 1px solid #c8ccd1; }
+.toc a { color: #36c; }
+.article { font-family: Georgia, "Times New Roman", serif; font-size: 16px; line-height: 1.62; }
+.article h1 { margin: 0; padding-bottom: 6px; border-bottom: 1px solid #a2a9b1; font-size: 34px; font-weight: 400; letter-spacing: 0; }
+.subtitle { margin: 5px 0 24px; color: #54595d; font: 13px Arial, sans-serif; }
+.article h2 { margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid #a2a9b1; font-size: 24px; font-weight: 400; }
+.box { float: right; width: 260px; margin: 0 0 20px 28px; padding: 6px; border: 1px solid #a2a9b1; background: #f8f9fa; font: 13px Arial, sans-serif; text-align: center; }
+.box h3 { margin: 0; padding: 6px; background: #eaecf0; font-size: 18px; }
+.box img { width: 150px; margin: 16px; }
+.box dl { display: grid; grid-template-columns: 80px 1fr; margin: 0; text-align: left; }
+.box dt, .box dd { margin: 0; padding: 5px; border-top: 1px solid #eaecf0; }
+.box dt { font-weight: 700; }
+.article table { border-collapse: collapse; font: 14px Arial, sans-serif; }
+.article th, .article td { padding: 8px 14px; border: 1px solid #a2a9b1; text-align: left; }
+.article th { background: #eaecf0; }
+
+@media (max-width: 700px) {
+  .nav, main, footer { width: calc(100% - 24px); }
+  .nav nav { gap: 14px; }
+  main { padding-top: 38px; }
+  .product { grid-template-columns: 1fr; gap: 34px; }
+  .product-copy h1 { font-size: 36px; }
+  .download-options { align-items: stretch; flex-direction: column; }
+  .download-button { justify-content: center; }
+  footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 14px; }
+  .wiki-layout { grid-template-columns: 1fr; }
+  .toc { display: none; }
+  .box { float: none; width: 100%; margin: 0 0 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .slide { transition: none; }
+}
