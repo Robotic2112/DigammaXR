@@ -612,7 +612,7 @@ public class VRSettings {
         }
         if (type == VRProvider.class && value.equalsIgnoreCase("OPENVR")) {
             VRSettings.LOGGER.info(
-                "ForkXR: migrated the legacy OpenVR provider setting to native OpenXR");
+                "DigammaXR: migrated the legacy OpenVR provider setting to native OpenXR");
             return VRProvider.OPENXR;
         }
 

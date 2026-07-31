@@ -79,9 +79,9 @@ processResources {
 shadowJar {
     exclude "architectury.common.json"
     from(rootProject.file("LICENSE.md")) {
-        rename { "LICENSE_ForkXR.md" }
+        rename { "LICENSE_DigammaXR.md" }
     }
-    from(rootProject.file("FORKXR_NOTICE.md"))
+    from(rootProject.file("DIGAMMAXR_NOTICE.md"))
 
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
@@ -97,9 +97,9 @@ remapJar {
 jar {
     archiveClassifier.set("dev")
     from(rootProject.file("LICENSE.md")) {
-        rename { "LICENSE_ForkXR.md" }
+        rename { "LICENSE_DigammaXR.md" }
     }
-    from(rootProject.file("FORKXR_NOTICE.md"))
+    from(rootProject.file("DIGAMMAXR_NOTICE.md"))
     manifest {
         attributes(
             'Main-Class': "org.vivecraft.LaunchPopup"

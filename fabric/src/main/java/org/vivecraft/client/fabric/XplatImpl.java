@@ -49,14 +49,14 @@ public class XplatImpl implements Xplat {
 
     public static String getModVersion() {
         if (isModLoadedSuccess()) {
-            return FabricLoader.getInstance().getModContainer("forkxr").get().getMetadata().getVersion()
+            return FabricLoader.getInstance().getModContainer("digammaxr").get().getMetadata().getVersion()
                 .getFriendlyString();
         }
         return "no version";
     }
 
     public static boolean isModLoadedSuccess() {
-        return FabricLoader.getInstance().isModLoaded("forkxr");
+        return FabricLoader.getInstance().isModLoaded("digammaxr");
     }
 
     public static boolean enableRenderTargetStencil(RenderTarget renderTarget) {
@@ -64,7 +64,7 @@ public class XplatImpl implements Xplat {
     }
 
     public static Path getJarPath() {
-        return FabricLoader.getInstance().getModContainer("forkxr").get().getRootPaths().get(0);
+        return FabricLoader.getInstance().getModContainer("digammaxr").get().getRootPaths().get(0);
     }
 
     public static String getUseMethodName() {

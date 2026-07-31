@@ -36,7 +36,7 @@ public abstract class WindowVRMixin implements WindowExtension {
             value = "INVOKE",
             target = "Lorg/lwjgl/glfw/GLFW;glfwCreateWindow(IILjava/lang/CharSequence;JJ)J",
             remap = false))
-    private void forkxr$requireModernCoreContext(CallbackInfo ci) {
+    private void digammaxr$requireModernCoreContext(CallbackInfo ci) {
         GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MAJOR, 4);
         GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MINOR, 5);
         GLFW.glfwWindowHint(

@@ -63,7 +63,7 @@ public final class OpenXRStereoRenderer extends VRRenderer {
             height != VulkanXrBackend.EYE_HEIGHT)
         {
             throw renderError(
-                "ForkXR eye resolution mismatch",
+                "DigammaXR eye resolution mismatch",
                 "Expected 1832x1920 but renderer requested " +
                     width + "x" + height);
         }
@@ -105,7 +105,7 @@ public final class OpenXRStereoRenderer extends VRRenderer {
         }
 
         this.rightFramebuffer = new VRTextureTarget(
-            "ForkXR Right Eye",
+            "DigammaXR Right Eye",
             width,
             height,
             true,
@@ -114,7 +114,7 @@ public final class OpenXRStereoRenderer extends VRRenderer {
             true,
             ClientDataHolderVR.getInstance().vrSettings.vrUseStencil);
         this.leftFramebuffer = new VRTextureTarget(
-            "ForkXR Left Eye",
+            "DigammaXR Left Eye",
             width,
             height,
             true,
@@ -256,7 +256,7 @@ public final class OpenXRStereoRenderer extends VRRenderer {
                     if (!this.firstFrameLogged) {
                         this.firstFrameLogged = true;
                         VRSettings.LOGGER.info(
-                            "ForkXR: first complete Vivecraft stereo frame submitted to VDXR");
+                            "DigammaXR: first complete Vivecraft stereo frame submitted to VDXR");
                     }
                 } finally {
                     int releaseResult = XR10.xrReleaseSwapchainImage(
@@ -383,7 +383,7 @@ public final class OpenXRStereoRenderer extends VRRenderer {
                 samples++;
             }
             VRSettings.LOGGER.info(
-                "ForkXR: first left-eye framebuffer contains color in {}/{} sampled pixels",
+                "DigammaXR: first left-eye framebuffer contains color in {}/{} sampled pixels",
                 coloredSamples,
                 samples);
         }
@@ -413,7 +413,7 @@ public final class OpenXRStereoRenderer extends VRRenderer {
 
     @Override
     public String getName() {
-        return "ForkXR Native OpenXR/VDXR";
+        return "DigammaXR Native OpenXR/VDXR";
     }
 
     @Override

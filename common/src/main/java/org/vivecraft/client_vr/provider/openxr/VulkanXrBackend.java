@@ -136,7 +136,7 @@ final class VulkanXrBackend implements AutoCloseable {
 
         VkApplicationInfo applicationInfo = VkApplicationInfo.calloc(stack)
             .sType$Default()
-            .pApplicationName(stack.UTF8("ForkXR"))
+            .pApplicationName(stack.UTF8("DigammaXR"))
             .applicationVersion(VK_MAKE_VERSION(10, 0, 0))
             .pEngineName(stack.UTF8("Minecraft Vivecraft OpenXR"))
             .engineVersion(VK_MAKE_VERSION(1, 20, 4))
@@ -287,7 +287,7 @@ final class VulkanXrBackend implements AutoCloseable {
         ByteBuffer readback = MemoryUtil.memAlloc(FRAME_PIXEL_BYTES);
 
         VRSettings.LOGGER.info(
-            "ForkXR: initialized the Intel Arc-safe Vulkan OpenXR bridge");
+            "DigammaXR: initialized the Intel Arc-safe Vulkan OpenXR bridge");
         return new VulkanXrBackend(
             vkInstance,
             physicalDevice,

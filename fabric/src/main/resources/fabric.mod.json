@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "forkxr",
+  "id": "digammaxr",
   "version": "${version}",
 
-  "name": "ForkXR",
+  "name": "DigammaXR",
   "description": "The only simple way to play Minecraft Java in VR on Intel Arc graphics cards.",
-  "icon": "forkxr.png",
-  "authors": ["ForkXR contributors"],
+  "icon": "digammaxr.png",
+  "authors": ["DigammaXR contributors"],
 
   "license": "LGPL-3.0-or-later",
 
