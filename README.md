@@ -1,6 +1,8 @@
-# DigammaXR
+# DigammaXR (ARCHIVED)
 
 ![DigammaXR logo](common/src/main/resources/digammaxr.png)
+
+⚠️ This project is archived. Development has ended. The last released version remains available for download.
 
 DigammaXR is a Vivecraft fork that makes Minecraft Java VR playable on Intel Arc graphics through Virtual Desktop.
 
